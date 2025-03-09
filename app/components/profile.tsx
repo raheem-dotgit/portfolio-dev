@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { FileText, Mail } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Profile() {
   return (
@@ -17,7 +18,9 @@ export default function Profile() {
             viewport={{ once: true }}
           >
             <div className='overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 p-1'>
-              <img
+              <Image
+                width={300}
+                height={300}
                 src='/mee.jpeg'
                 alt='Developer Profile'
                 className='aspect-square w-full rounded-lg object-cover'
