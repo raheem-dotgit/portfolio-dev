@@ -13,7 +13,7 @@ export default function Projects() {
 
   const projects = [
     {
-      src: '/placeholder.svg?height=600&width=400&text=E-Commerce+App',
+      src: '/images/projects/9d792385-0b34-4cfe-baa2-5690034f1e49-cover.jpeg',
       alt: 'E-commerce mobile app',
       title: 'ShopSmart App',
       description: 'React Native mobile application with Node.js backend',
@@ -21,7 +21,7 @@ export default function Projects() {
       live: '#',
     },
     {
-      src: '/placeholder.svg?height=600&width=400&text=Analytics+Dashboard',
+      src: '/images/projects/124d52182473479.652e8566f059e.png',
       alt: 'SaaS dashboard',
       title: 'Analytics Dashboard',
       description: 'Next.js web application with real-time data visualization',
@@ -29,7 +29,7 @@ export default function Projects() {
       live: '#',
     },
     {
-      src: '/placeholder.svg?height=600&width=400&text=Fitness+Tracker',
+      src: '/images/projects/original-dacd5d0bfd5c11cddbb895e66c2424f9.webp',
       alt: 'Fitness tracking app',
       title: 'FitTrack',
       description: 'Cross-platform mobile app built with Flutter',
@@ -37,7 +37,7 @@ export default function Projects() {
       live: '#',
     },
     {
-      src: '/placeholder.svg?height=600&width=400&text=Restaurant+Booking',
+      src: '/images/projects/f6948378d60fd34efe8d829c5ed283ab.webp',
       alt: 'Restaurant booking system',
       title: 'TableReserve',
       description: 'Full-stack web application with payment integration',
@@ -72,7 +72,7 @@ export default function Projects() {
                   height={600}
                   src={project.src || '/placeholder.svg'}
                   alt={project.alt}
-                  className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
+                  className='h-full w-full object-fill transition-transform duration-500 group-hover:scale-110'
                 />
               </div>
               <div className='absolute inset-0 flex flex-col items-center justify-center bg-white/90 p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:bg-black/80'>

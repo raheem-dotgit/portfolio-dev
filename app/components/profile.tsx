@@ -65,7 +65,7 @@ export default function Profile() {
               </Button>
               <Button variant='outline' className='gap-2'>
                 <Mail className='h-4 w-4' />
-                Contact Me
+                <a href='#contact'>Contact me</a>
               </Button>
             </div>
           </motion.div>
