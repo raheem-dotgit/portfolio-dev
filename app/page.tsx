@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import TechIcons from './components/tech-icons';
 import Profile from './components/profile';
 import Navbar from './components/navbar';
+import FAQs from './components/faqs';
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <Profile />
       <Projects />
       <Skills />
+      <FAQs />
       <Contact />
       <Footer />
     </main>
