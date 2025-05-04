@@ -66,7 +66,7 @@ export default function Projects() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className='aspect-[2/3] overflow-hidden'>
+              <div className='aspect-[4/4] overflow-hidden'>
                 <Image
                   width={400}
                   height={600}

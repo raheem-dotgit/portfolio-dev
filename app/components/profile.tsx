@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { FileText, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Profile() {
@@ -19,9 +19,9 @@ export default function Profile() {
           >
             <div className='overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 p-1'>
               <Image
-                width={300}
-                height={300}
-                src='/mee.jpeg'
+                width={900}
+                height={900}
+                src='/me.png'
                 alt='Developer Profile'
                 className='aspect-square w-full rounded-lg object-cover'
               />
@@ -59,10 +59,6 @@ export default function Profile() {
             </div>
 
             <div className='flex flex-wrap gap-4'>
-              <Button className='gap-2'>
-                <FileText className='h-4 w-4' />
-                Download Resume
-              </Button>
               <Button variant='outline' className='gap-2'>
                 <Mail className='h-4 w-4' />
                 <a href='#contact'>Contact me</a>

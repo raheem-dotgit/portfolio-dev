@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useState } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -37,9 +38,45 @@ export default function Contact() {
       message: '',
     },
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    setFormStatus({ type: null, message: '' });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      form.reset();
+      setFormStatus({
+        type: 'success',
+        message: 'Your message has been sent successfully!',
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setFormStatus({
+        type: 'error',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Failed to send message. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -123,9 +160,25 @@ export default function Contact() {
                   </FormItem>
                 )}
               />
-              <Button type='submit' className='w-full dark:bg-white  '>
-                Send Message
+              <Button
+                type='submit'
+                className='w-full dark:bg-white'
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
+
+              {formStatus.type && (
+                <div
+                  className={`mt-4 p-3 rounded ${
+                    formStatus.type === 'success'
+                      ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100'
+                      : 'bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100'
+                  }`}
+                >
+                  {formStatus.message}
+                </div>
+              )}
             </form>
           </Form>
         </motion.div>
